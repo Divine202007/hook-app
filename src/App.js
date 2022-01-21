@@ -1,8 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
+import './Style.css';
 import ListeFilm from './ListeFilm';
 import  {Container} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import AddFilm from './AddFilm';
 
 
 const movielist = [
@@ -43,10 +45,19 @@ function App() {
 
   const [films, setFilms] = useState(movielist);
 
+  const addFilm = (film) => {
+      if(!film.title || /^ \s*$/.test(film.title) ){
+        return;
+      } 
+      const newFilms = [film, ...films];
+      setFilms(newFilms);
+      console.log(...newFilms);
+  } 
 
   return (
     <div className="App">
       <Container>
+          <AddFilm onSubmit = {addFilm} />
           <ListeFilm films={films} />
       </Container>
     </div>

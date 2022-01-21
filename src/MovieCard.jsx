@@ -8,7 +8,7 @@ const MovieCard = (props) => {
                 <div className="card" style={{width: '18rem'}}>
               
                     <div className="card-body">
-                        <iframe src={props.film.posterUrl} frameborder="0"></iframe>
+                        <iframe src={props.film.posterUrl} frameBorder="0"></iframe>
                     
                     </div>
                     <div className="card-body">
